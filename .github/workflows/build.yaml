@@ -1,0 +1,25 @@
+name:  building .net application
+on: 
+  push:
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+      
+      - name: checkout
+        uses: actions/checkout@v3
+      
+      - name: print bin before build
+        run: 'ls -LR HelloWorldApp/bin'
+
+      - name: build
+        run: dotnet build
+
+      - name: print bin before build
+        run: 'ls -LR HelloWorldApp/bin'
+    
